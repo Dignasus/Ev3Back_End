@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Sistema Principal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f9; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        ul { list-style-type: none; padding: 0; }
+        li { background: #28a745; color: white; margin: 5px 0; padding: 10px; border-radius: 4px; width: 200px; text-align: center; }
+        .logout { display: inline-block; margin-top: 20px; color: #d9534f; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Bienvenido, {{ usuario }}!</h1>
+        <p>Estado: Conectado a la API de Usuarios (Puerto 8050) de forma exitosa.</p>
+        <hr>
+        <h3>Menú Dinámico (según permisos de la API):</h3>
+        <ul>
+            {% for opcion in menu_opciones %}
+                <li>{{ opcion }}</li>
+            {% endfor %}
+        </ul>
+        <a class="logout" href="{% url 'logout' %}">Cerrar Sesión</a>
+    </div>
+</body>
+</html>
